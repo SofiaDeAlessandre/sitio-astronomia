@@ -1,6 +1,7 @@
 import { Box, Container } from '@mui/material';
 import { IoRocketSharp } from 'react-icons/io5';
 import './CardsContainer.css'
+import Cards from '../cards/Cards';
 
 const CardsContainer = () => {
   return (
@@ -12,7 +13,7 @@ const CardsContainer = () => {
           animation: 'move 5s infinite',
         }}
       />
-        <Box></Box>
+        <Cards/>
     </Container>
   )
 }

@@ -13,13 +13,55 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Inicio', 'Fotos', 'Sobre mí', 'Contacto'];
+const navItems = ['Inicio', 'Fotos', 'Sobre mi', 'Contacto'];
+
+
+
+
 
 const NavBar = (props) => {
+
+
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const navigate = useNavigate();
+
+  const handleMenuItemClick = (page) => {
+    switch (page) {
+      case "Inicio":
+        navigate("/")
+        break;
+      case "Fotos":
+        navigate("/Fotos");
+        break;
+      case "Sobre mi":
+        navigate("/sobre-mi"); 
+        break;
+      case "Contacto":
+        navigate("/Contacto");
+        break;
+      default:
+        navigate("/");
+    }
+  };
+  
+
+  {navItems.map((setting) => (
+    <MenuItem 
+      key={setting}
+      onClick={() => handleMenuItemClick(setting)}
+    >
+      <Typography textAlign="center">{setting}</Typography>
+    </MenuItem>
+  ))}
+
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -32,23 +74,36 @@ const NavBar = (props) => {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+  {navItems.map((item) => (
+    <ListItem key={item} disablePadding>
+      <ListItemButton 
+        sx={{ textAlign: "center" }} 
+        component={Link} 
+        to={`/${item.replace(/\s/g, '-').toLowerCase()}`}
+      >
+        <ListItemText primary={item} />
+      </ListItemButton>
+    </ListItem>
+  ))}
+</List>
     </Box>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', background: 'transparent',
+      color: '#f8bbd0',
+      boxShadow: 'rgb(190 195 253) 0px 4px 15px',
+      backdropFilter: 'blur(2px)',
+      backgroundColor: 'transparent',
+      padding: '5px', }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{background: 'transparent',
+        color: '#f8bbd0',
+        backdropFilter: 'blur(2px)',
+        backgroundColor: 'transparent',
+        padding: '5px',}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -68,7 +123,7 @@ const NavBar = (props) => {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: '#fff' }} onClick={() => handleMenuItemClick(item)}>
                 {item}
               </Button>
             ))}
@@ -82,7 +137,7 @@ const NavBar = (props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
