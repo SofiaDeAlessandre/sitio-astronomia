@@ -1,21 +1,21 @@
-import { Box, Container } from '@mui/material';
-import { IoRocketSharp } from 'react-icons/io5';
-import './CardsContainer.css'
-import Cards from '../cards/Cards';
+import { Box, Container } from "@mui/material";
+import { IoRocketSharp } from "react-icons/io5";
+import "./CardsContainer.css";
+import Cards from "../cards/Cards";
 
 const CardsContainer = () => {
   return (
     <Container>
-         <IoRocketSharp
+      <IoRocketSharp
         style={{
-          color: '#d07224',
-          fontSize: '30px',
-          animation: 'move 5s infinite',
+          color: "rgb(246, 188, 207)",
+          fontSize: "30px",
+          animation: "move 5s infinite",
         }}
       />
-        <Cards/>
+      <Cards />
     </Container>
-  )
-}
+  );
+};
 
-export default CardsContainer
+export default CardsContainer;

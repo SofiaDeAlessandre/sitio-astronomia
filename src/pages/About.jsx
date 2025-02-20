@@ -1,9 +1,24 @@
-import { Typography } from "@mui/material"
+import { Container, Typography } from "@mui/material";
 
 const About = () => {
   return (
-    <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nesciunt temporibus, non modi exercitationem cum. Quas dolores unde incidunt voluptates laudantium, error temporibus iure cum, sit illum aliquid sint quibusdam.</Typography>
-  )
-}
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        textAlign: "center",
+      }}
+    >
+      <Typography sx={{ color: "rgb(246, 188, 207)" }}>
+        Soy aficionada de esta ciencia tan fascinante llamada "Astronomía",
+        fotógrafa amateur y amante de la naturaleza. Creé esta web con el fín de
+        mostrar y expandir la belleza de cada fenómeno. En la misma, se exponen
+        fotos que tomé de La Luna, eclipses, tormentas y cometas.{" "}
+      </Typography>
+    </Container>
+  );
+};
 
-export default About
+export default About;
