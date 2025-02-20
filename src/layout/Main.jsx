@@ -9,9 +9,9 @@ const Main = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/inicio" element={<Home />} />
-      <Route path="/Fotos" element={<CardsContainer />} />
+      <Route path="/fotos" element={<CardsContainer />} />
       <Route path="/sobre-mi" element={<About />} />
-      <Route path="/Contacto" element={<Contact />} />
+      <Route path="/contacto" element={<Contact />} />
     </Routes>
   );
 };

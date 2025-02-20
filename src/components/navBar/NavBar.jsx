@@ -32,13 +32,13 @@ const NavBar = (props) => {
         navigate("/");
         break;
       case "Fotos":
-        navigate("/Fotos");
+        navigate("/fotos");
         break;
       case "Sobre mi":
         navigate("/sobre-mi");
         break;
       case "Contacto":
-        navigate("/Contacto");
+        navigate("/contacto");
         break;
       default:
         navigate("/");
